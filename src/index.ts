@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import db from "./config/db";
+import TeamsRouter from "./routes/teamRoutes";
+import MatchRouter from "./routes/matchRoutes";
 
 
 dotenv.config();
@@ -19,5 +21,9 @@ db.initialize().then(async(connection)=> {
 }). catch ((error)=>{
     console.error('Banco de dados não conectado, erro:', error);
 })
+
+app.use(TeamsRouter);
+app.use(MatchRouter);
+
 
 app.listen(PORT, ()=>console.log(`Servidor rodando na porta ${PORT}`));
