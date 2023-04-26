@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-import db from '../config/db';
 
 
-class ServiceMatch{
-    public async find(req:Request, res:Response){
+class MatchController{
+    public async findMatchs(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -11,7 +10,7 @@ class ServiceMatch{
         }
     }
 
-    public async findById(req:Request, res:Response){
+    public async findMatchById(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -19,7 +18,7 @@ class ServiceMatch{
         }
     }
 
-    public async create(req:Request, res:Response){
+    public async createMatch(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -27,7 +26,7 @@ class ServiceMatch{
         }
     } 
 
-    public async update(req:Request, res:Response){
+    public async updateMatch(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -35,7 +34,7 @@ class ServiceMatch{
         }
     }
 
-    public async delete(req:Request, res:Response){
+    public async deleteMatch(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -44,4 +43,4 @@ class ServiceMatch{
     }
 }
 
-export default new ServiceMatch()
+export default new MatchController();

@@ -1,9 +1,8 @@
 import { Request, Response } from 'express';
-import db from '../config/db';
 
 
-class ServiceTeam{
-    public async find(req:Request, res:Response){
+class TeamController{
+    public async findTeams(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -11,7 +10,7 @@ class ServiceTeam{
         }
     }
 
-    public async findById(req:Request, res:Response){
+    public async findTeamById(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -19,7 +18,7 @@ class ServiceTeam{
         }
     }
 
-    public async create(req:Request, res:Response){
+    public async createTeam(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -27,7 +26,7 @@ class ServiceTeam{
         }
     } 
 
-    public async update(req:Request, res:Response){
+    public async updateTeam(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -35,7 +34,7 @@ class ServiceTeam{
         }
     }
 
-    public async delete(req:Request, res:Response){
+    public async deleteTeam(req:Request, res:Response){
         try{
 
         }catch(error){
@@ -44,4 +43,4 @@ class ServiceTeam{
     }
 }
 
-export default new ServiceTeam();
+export default new TeamController();
