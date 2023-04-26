@@ -5,7 +5,13 @@ import db from '../config/db';
 class ServiceMatch{
     public async find(){
         try{
-
+            const matches = await db.getRepository(Match).find({
+                relations:{
+                    host:true,
+                    visitor:true
+                }
+            });
+            return matches
         }catch(error){
             console.log(error);
         }

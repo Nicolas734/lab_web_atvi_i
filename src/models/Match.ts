@@ -15,14 +15,14 @@ class Match{
         name:'idHost',
         referencedColumnName:'id'
     })
-    idHost: Team
+    host: Team
 
     @ManyToOne(type => Team)
     @JoinColumn({
         name:'idVisitor',
         referencedColumnName:'id'
     })
-    idVisitor: Team
+    visitor: Team
 }
 
 export default Match

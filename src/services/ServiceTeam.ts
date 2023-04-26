@@ -5,7 +5,8 @@ import db from '../config/db';
 class ServiceTeam{
     public async find(){
         try{
-
+            const teams = await db.getRepository(Team).find();
+            return teams
         }catch(error){
             console.log(error);
         }
