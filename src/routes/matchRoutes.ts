@@ -4,7 +4,7 @@ import { Router } from "express";
 
 const routes = Router();
 
-routes.get('/match', MatchController.findMatchs);
+routes.get('/match', MatchController.findMatches);
 routes.get('/match/:id', MatchController.findMatchById);
 routes.post('/match', MatchController.createMatch);
 routes.put('/match', MatchController.updateMatch);

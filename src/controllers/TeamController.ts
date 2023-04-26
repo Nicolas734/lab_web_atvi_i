@@ -1,10 +1,12 @@
 import { Request, Response } from 'express';
+import ServiceTeam from '../services/ServiceTeam';
 
 
 class TeamController{
     public async findTeams(req:Request, res:Response){
         try{
-
+            const teams = await ServiceTeam.find();
+            res.json(teams)
         }catch(error){
             res.status(500).json(error);
         }
