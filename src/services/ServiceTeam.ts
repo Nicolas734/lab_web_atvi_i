@@ -33,12 +33,20 @@ class ServiceTeam{
             await db.getRepository(Team).save(team);
             return team;
         }catch(error){
-            throw error;
+            throw 'O nome já existe';
         }
     } 
 
     public async update(id: number, name: string){
         try{
+            const exist = await db.getRepository(Team).exist({
+                where:{
+                    name: name
+                }
+            })
+            if(exist){
+                throw 'O nome já existe';
+            }
             const team = await db.getRepository(Team).findOneBy({id:id});
             team.name = name;
             await db.getRepository(Team).save(team);
@@ -50,7 +58,7 @@ class ServiceTeam{
 
     public async delete(){
         try{
-
+            
         }catch(error){
             throw error;
         }
