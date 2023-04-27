@@ -6,7 +6,7 @@ class Team{
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column({nullable:false, length: 30})
+    @Column({nullable:false, length: 30, unique:true})
     name: string
 }
 

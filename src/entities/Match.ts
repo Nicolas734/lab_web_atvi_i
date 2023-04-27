@@ -13,14 +13,16 @@ class Match{
     @ManyToOne(type => Team, {onDelete:'CASCADE', onUpdate:'CASCADE'})
     @JoinColumn({
         name:'idhost',
-        referencedColumnName:'id'
+        referencedColumnName:'id',
+        foreignKeyConstraintName:'fk_host_id'
     })
     host: Team
 
     @ManyToOne(type => Team, {onDelete:'CASCADE', onUpdate:'CASCADE'})
     @JoinColumn({
         name:'idvisitor',
-        referencedColumnName:'id'
+        referencedColumnName:'id',
+        foreignKeyConstraintName:'fk_visitor_id'
     })
     visitor: Team
 }

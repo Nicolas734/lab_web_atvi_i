@@ -28,7 +28,7 @@ class TeamController{
             const team = await ServiceTeam.create(name);
             return res.json(team);
         }catch(error){
-            res.status(500).json(error);
+            res.status(500).json({error:'O nome já existe'});
         }
     } 
 

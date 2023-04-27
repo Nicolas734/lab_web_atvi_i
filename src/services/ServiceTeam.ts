@@ -31,10 +31,9 @@ class ServiceTeam{
             const team = new Team();
             team.name = name
             await db.getRepository(Team).save(team);
-            console.log(team);
             return team;
         }catch(error){
-            console.log(error);
+            throw error
         }
     } 
 

@@ -18,7 +18,7 @@ const db = new DataSource({
     // username: USER,
     // password:PASSWORD,
     synchronize: false, 
-    logging: true,
+    logging: false,
     entities: ["src/entities/*.ts"],
     migrations: ["src/migrations/*.ts"],
     subscribers: [],
