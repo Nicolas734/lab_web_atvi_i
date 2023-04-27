@@ -6,15 +6,17 @@ class TeamController{
     public async findTeams(req:Request, res:Response){
         try{
             const teams = await ServiceTeam.find();
-            res.json(teams)
+            return res.json(teams);
         }catch(error){
             res.status(500).json(error);
         }
     }
 
-    public async findTeamById(req:Request, res:Response){
+    public async findTeamByTermo(req:Request, res:Response){
         try{
-
+            const termo = req.params.termo;
+            const teams = await ServiceTeam.findByTermo(termo)
+            return res.json(teams);
         }catch(error){
             res.status(500).json(error);
         }
@@ -22,7 +24,9 @@ class TeamController{
 
     public async createTeam(req:Request, res:Response){
         try{
-
+            const { name } = req.body;
+            const team = await ServiceTeam.create(name);
+            return res.json(team);
         }catch(error){
             res.status(500).json(error);
         }

@@ -1,5 +1,6 @@
 import Team from '../entities/Team';
 import db from '../config/db';
+import { Like } from 'typeorm';
 
 
 class ServiceTeam{
@@ -12,17 +13,26 @@ class ServiceTeam{
         }
     }
 
-    public async findById(){
+    public async findByTermo(termo){
         try{
-
+            const teams = await db.getRepository(Team).find({
+                where:{
+                    name: Like(`%${termo}%`)
+                }
+            });
+            return teams;
         }catch(error){
             console.log(error);
         }
     }
 
-    public async create(){
+    public async create(name){
         try{
-
+            const team = new Team();
+            team.name = name
+            await db.getRepository(Team).save(team);
+            console.log(team);
+            return team;
         }catch(error){
             console.log(error);
         }
