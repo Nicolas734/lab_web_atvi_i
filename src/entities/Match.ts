@@ -7,19 +7,19 @@ class Match{
     @PrimaryGeneratedColumn()
     id: number
     
-    @Column()
+    @Column({type:'date', default:() => "CURRENT_TIMESTAMP"})
     date: Date
 
-    @ManyToOne(type => Team)
+    @ManyToOne(type => Team, {onDelete:'CASCADE', onUpdate:'CASCADE'})
     @JoinColumn({
-        name:'idHost',
+        name:'idhost',
         referencedColumnName:'id'
     })
     host: Team
 
-    @ManyToOne(type => Team)
+    @ManyToOne(type => Team, {onDelete:'CASCADE', onUpdate:'CASCADE'})
     @JoinColumn({
-        name:'idVisitor',
+        name:'idvisitor',
         referencedColumnName:'id'
     })
     visitor: Team

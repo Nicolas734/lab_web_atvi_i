@@ -1,4 +1,4 @@
-import Team from '../models/Team';
+import Team from '../entities/Team';
 import db from '../config/db';
 
 

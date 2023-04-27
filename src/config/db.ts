@@ -1,7 +1,5 @@
 import { DataSource } from "typeorm";
 import * as dotenv from "dotenv";
-import Team from "../models/Team";
-import Match from "../models/Match";
 
 
 dotenv.config();
@@ -12,18 +10,26 @@ const DATABASE = process.env.DATABASE || "";
 const HOST = process.env.HOST || "localhost";
 
 const db = new DataSource({
-    database: DATABASE,
-    type: "mysql",
-    host: HOST,
-    port: 3306,
-    username: USER,
-    password:PASSWORD,
-    synchronize: true, 
-    logging: false,
-    entities: [Team, Match],
+    //url: "postgres://euulhvnh:qFhjmR8weU537Ie9HEvjXidDlrzj2wzR@babar.db.elephantsql.com/euulhvnh",
+    database: "bdaula.db",
+    type: "sqlite",
+    // host: HOST,
+    // port: 3306,
+    // username: USER,
+    // password:PASSWORD,
+    synchronize: false, 
+    logging: true,
+    entities: ["src/entities/*.ts"],
     migrations: ["src/migrations/*.ts"],
     subscribers: [],
     maxQueryExecutionTime: 2000
 });
+
+
+db.initialize().then(async(connection)=> {
+    console.log("Banco de Dados conectado...");
+}). catch ((error)=>{
+    console.error('Banco de dados não conectado, erro:', error);
+})
 
 export default db;

@@ -1,4 +1,4 @@
-import Match from '../models/Match';
+import Match from '../entities/Match';
 import db from '../config/db';
 
 
