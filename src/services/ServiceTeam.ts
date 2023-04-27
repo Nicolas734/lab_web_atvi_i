@@ -9,11 +9,11 @@ class ServiceTeam{
             const teams = await db.getRepository(Team).find();
             return teams
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
-    public async findByTermo(termo){
+    public async findByTermo(termo: string){
         try{
             const teams = await db.getRepository(Team).find({
                 where:{
@@ -22,26 +22,29 @@ class ServiceTeam{
             });
             return teams;
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
-    public async create(name){
+    public async create(name: string){
         try{
             const team = new Team();
-            team.name = name
+            team.name = name;
             await db.getRepository(Team).save(team);
             return team;
         }catch(error){
-            throw error
+            throw error;
         }
     } 
 
-    public async update(){
+    public async update(id: number, name: string){
         try{
-
+            const team = await db.getRepository(Team).findOneBy({id:id});
+            team.name = name;
+            await db.getRepository(Team).save(team);
+            return team;
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
@@ -49,7 +52,7 @@ class ServiceTeam{
         try{
 
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 }

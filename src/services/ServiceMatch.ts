@@ -13,7 +13,7 @@ class ServiceMatch{
             });
             return matches
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
@@ -21,7 +21,7 @@ class ServiceMatch{
         try{
 
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
@@ -29,7 +29,7 @@ class ServiceMatch{
         try{
 
         }catch(error){
-            console.log(error);
+            throw error;
         }
     } 
 
@@ -37,7 +37,7 @@ class ServiceMatch{
         try{
 
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 
@@ -45,7 +45,7 @@ class ServiceMatch{
         try{
 
         }catch(error){
-            console.log(error);
+            throw error;
         }
     }
 }

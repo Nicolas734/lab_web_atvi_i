@@ -34,7 +34,9 @@ class TeamController{
 
     public async updateTeam(req:Request, res:Response){
         try{
-
+            const { id, name } = req.body;
+            const team = await ServiceTeam.update(Number(id), name);
+            return res.json(team);
         }catch(error){
             res.status(500).json(error);
         }
