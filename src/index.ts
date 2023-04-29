@@ -5,9 +5,10 @@ import TeamsRouter from "./routes/teamRoutes";
 import MatchRouter from "./routes/matchRoutes";
 
 
-dotenv.config();
 
+dotenv.config();
 const PORT = process.env.PORT || 3004;
+
 
 const app = express();
 

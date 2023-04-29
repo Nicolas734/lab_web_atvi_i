@@ -23,9 +23,27 @@ class ServiceMatch{
         }
     }
 
-    public async findById(){
+    public async findById(id:number){
         try{
-
+            const matches = await db.getRepository(Match).find({
+                where:[
+                    {
+                        host:{
+                            id: id
+                        }
+                    },
+                    {
+                        visitor:{
+                            id: id
+                        }
+                    }
+                ],
+                relations:{
+                    host:true,
+                    visitor:true
+                }
+            })
+            return matches;
         }catch(error){
             throw error;
         }
@@ -54,9 +72,10 @@ class ServiceMatch{
         }
     }
 
-    public async delete(){
+    public async delete(id:number){
         try{
-
+            const data = db.createQueryBuilder().delete().from(Match).where("id=:id", {id}).execute();
+            return data
         }catch(error){
             throw error;
         }

@@ -62,8 +62,8 @@ class ServiceTeam{
 
     public async delete(id: number){
         try{
-            const team = await db.createQueryBuilder().delete().from(Team).where("id=:id", {id}).execute();
-            return team;
+            const data = await db.createQueryBuilder().delete().from(Team).where("id=:id", {id}).execute();
+            return data;
         }catch(error){
             throw error;
         }

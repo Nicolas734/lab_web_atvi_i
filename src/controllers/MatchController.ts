@@ -12,9 +12,11 @@ class MatchController{
         }
     }
 
-    public async findMatchById(req:Request, res:Response){
+    public async findMatchesById(req:Request, res:Response){
         try{
-
+            const id = Number(req.params.id);
+            const matches = await ServiceMatch.findById(id);
+            return res.json(matches);
         }catch(error){
             res.status(500).json(error);
         }
@@ -40,7 +42,9 @@ class MatchController{
 
     public async deleteMatch(req:Request, res:Response){
         try{
-
+            const { id } = req.body;
+            const data = await ServiceMatch.delete(id);
+            return res.json(data);
         }catch(error){
             res.status(500).json(error);
         }
