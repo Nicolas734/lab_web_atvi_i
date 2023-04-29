@@ -6,7 +6,11 @@ import { Like } from 'typeorm';
 class ServiceTeam{
     public async find(){
         try{
-            const teams = await db.getRepository(Team).find();
+            const teams = await db.getRepository(Team).find({
+                order:{
+                    name: "ASC"
+                }
+            });
             return teams
         }catch(error){
             throw error;

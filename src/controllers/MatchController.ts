@@ -5,7 +5,7 @@ import ServiceMatch from '../services/ServiceMatch';
 class MatchController{
     public async findMatches(req:Request, res:Response){
         try{
-            const matches = await ServiceMatch.find()
+            const matches = await ServiceMatch.find(req.body);
             return res.json(matches)
         }catch(error){
             res.status(500).json(error);

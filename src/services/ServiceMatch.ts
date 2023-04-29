@@ -4,13 +4,18 @@ import db from '../config/db';
 
 
 class ServiceMatch{
-    public async find(){
+    public async find({ limit, offset }:{limit:number, offset:number}){
         try{
             const matches = await db.getRepository(Match).find({
                 relations:{
                     host:true,
                     visitor:true
-                }
+                },
+                order:{
+                    date:"DESC"
+                },
+                skip:offset,
+                take:((offset || 1) * limit) - offset || 0
             });
             return matches
         }catch(error){
@@ -34,6 +39,7 @@ class ServiceMatch{
             match.host = host;
             match.visitor = visitor;
             match.date = new Date();
+            await db.getRepository(Match).save(match);
             return match;
         }catch(error){
             throw error;
