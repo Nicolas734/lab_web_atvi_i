@@ -44,7 +44,9 @@ class TeamController{
 
     public async deleteTeam(req:Request, res:Response){
         try{
-
+            const { id } = req.body;
+            const data = await ServiceTeam.delete(id);
+            return res.json(data);
         }catch(error){
             res.status(500).json(error);
         }

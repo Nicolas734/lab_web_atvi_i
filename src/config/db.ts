@@ -10,9 +10,9 @@ const DATABASE = process.env.DATABASE || "";
 const HOST = process.env.HOST || "localhost";
 
 const db = new DataSource({
-    //url: "postgres://euulhvnh:qFhjmR8weU537Ie9HEvjXidDlrzj2wzR@babar.db.elephantsql.com/euulhvnh",
-    database: "bdaula.db",
-    type: "sqlite",
+    url: "postgres://euulhvnh:qFhjmR8weU537Ie9HEvjXidDlrzj2wzR@babar.db.elephantsql.com/euulhvnh",
+    //database: "bdaula.db",
+    type: "postgres",
     // host: HOST,
     // port: 3306,
     // username: USER,
