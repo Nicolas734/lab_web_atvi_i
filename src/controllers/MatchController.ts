@@ -6,7 +6,7 @@ class MatchController{
     public async findMatches(req:Request, res:Response){
         try{
             const matches = await ServiceMatch.find()
-            res.json(matches)
+            return res.json(matches)
         }catch(error){
             res.status(500).json(error);
         }
@@ -22,7 +22,9 @@ class MatchController{
 
     public async createMatch(req:Request, res:Response){
         try{
-
+            const { idhost, idvisitor } = req.body;
+            const match = await ServiceMatch.create(idhost, idvisitor);
+            return res.json(match);
         }catch(error){
             res.status(500).json(error);
         }
