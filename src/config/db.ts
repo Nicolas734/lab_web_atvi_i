@@ -25,11 +25,4 @@ const db = new DataSource({
     maxQueryExecutionTime: 2000
 });
 
-
-db.initialize().then(async(connection)=> {
-    console.log("Banco de Dados conectado...");
-}). catch ((error)=>{
-    console.error('Banco de dados não conectado, erro:', error);
-})
-
 export default db;
