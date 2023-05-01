@@ -15,7 +15,7 @@ class ServiceMatch{
                     date:"DESC"
                 },
                 skip:offset,
-                take:((offset || 1) * limit) - offset || 0
+                take:limit
             });
             return matches
         }catch(error){
