@@ -64,9 +64,16 @@ class ServiceMatch{
         }
     } 
 
-    public async update(){
+    public async update(idhost:number, idvisitor:number, date:Date){
         try{
-
+            const host = await db.getRepository(Team).exist({where:{id:idhost}});
+            const visitor = await db.getRepository(Match)
+            if(!host){
+                throw "Mandante desconhecido";
+            }
+            if(!visitor){
+                throw "Visitante desconhecido";
+            }
         }catch(error){
             throw error;
         }
