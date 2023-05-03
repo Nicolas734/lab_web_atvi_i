@@ -64,16 +64,21 @@ class ServiceMatch{
         }
     } 
 
-    public async update(idhost:number, idvisitor:number, date:Date){
+    public async update(id:number, idhost:number, idvisitor:number, date:Date){
         try{
-            const host = await db.getRepository(Team).exist({where:{id:idhost}});
-            const visitor = await db.getRepository(Match)
+            const host = await db.getRepository(Team).findOne({where:{id:idhost}});
+            const visitor = await db.getRepository(Team).findOne({where:{id:idvisitor}});
             if(!host){
                 throw "Mandante desconhecido";
             }
             if(!visitor){
                 throw "Visitante desconhecido";
             }
+            const match = await db.getRepository(Match).findOneBy({id:id});
+            match.date = date;
+            match.visitor = visitor;
+            match.host = host;
+            return match;
         }catch(error){
             throw error;
         }
