@@ -34,7 +34,9 @@ class MatchController{
 
     public async updateMatch(req:Request, res:Response){
         try{
-
+            const {id, idhost, idvisitor, date} = req.body;
+            const match = await ServiceMatch.update(id, idhost, idvisitor, date);
+            return res.json(match);
         }catch(error){
             res.status(500).json(error);
         }
