@@ -3,7 +3,7 @@ import ServiceTeam from '../services/ServiceTeam';
 
 
 class TeamController{
-    public async findTeams(req:Request, res:Response){
+    public async findTeams(req:Request, res:Response): Promise<Response>{
         try{
             const teams = await ServiceTeam.find();
             return res.json(teams);
@@ -25,6 +25,9 @@ class TeamController{
     public async createTeam(req:Request, res:Response){
         try{
             const { name } = req.body;
+            if(!name || name.trim() === ""){
+                throw "Nome necessário"
+            }
             const team = await ServiceTeam.create(name);
             return res.json(team);
         }catch(error){

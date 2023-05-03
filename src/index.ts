@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
-import TeamsRouter from "./routes/teamRoutes";
-import MatchRouter from "./routes/matchRoutes";
+import routes from "./routes";
 import db from "./config/db";
 
 
@@ -23,8 +22,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.use(TeamsRouter);
-app.use(MatchRouter);
+app.use(routes);
 
 
 app.listen(PORT, ()=>console.log(`Servidor rodando na porta ${PORT}`));

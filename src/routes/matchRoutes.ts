@@ -4,11 +4,11 @@ import { Router } from "express";
 
 const routes = Router();
 
-routes.get('/match', MatchController.findMatches);
-routes.get('/match/:id', MatchController.findMatchesById);
-routes.post('/match', MatchController.createMatch);
-routes.put('/match', MatchController.updateMatch);
-routes.delete('/match', MatchController.deleteMatch);
+routes.get('/', MatchController.findMatches);
+routes.get('/:id', MatchController.findMatchesById);
+routes.post('/', MatchController.createMatch);
+routes.put('/', MatchController.updateMatch);
+routes.delete('/', MatchController.deleteMatch);
 
 
-export default routes
+export default routes;

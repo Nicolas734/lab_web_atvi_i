@@ -3,7 +3,7 @@ import ServiceMatch from '../services/ServiceMatch';
 
 
 class MatchController{
-    public async findMatches(req:Request, res:Response){
+    public async findMatches(req:Request, res:Response): Promise<Response>{
         try{
             const matches = await ServiceMatch.find(req.body);
             return res.json(matches)
@@ -12,7 +12,7 @@ class MatchController{
         }
     }
 
-    public async findMatchesById(req:Request, res:Response){
+    public async findMatchesById(req:Request, res:Response): Promise<Response>{
         try{
             const id = Number(req.params.id);
             const matches = await ServiceMatch.findById(id);
@@ -22,7 +22,7 @@ class MatchController{
         }
     }
 
-    public async createMatch(req:Request, res:Response){
+    public async createMatch(req:Request, res:Response): Promise<Response>{
         try{
             const { idhost, idvisitor } = req.body;
             const match = await ServiceMatch.create(idhost, idvisitor);

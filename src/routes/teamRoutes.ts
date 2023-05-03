@@ -5,11 +5,11 @@ import { Router } from "express";
 const routes = Router();
 
 
-routes.get('/team', TeamController.findTeams);
-routes.get('/team/:termo', TeamController.findTeamByTermo);
-routes.post('/team', TeamController.createTeam);
-routes.put('/team', TeamController.updateTeam);
-routes.delete('/team', TeamController.deleteTeam);
+routes.get('/', TeamController.findTeams);
+routes.get('/:termo', TeamController.findTeamByTermo);
+routes.post('/', TeamController.createTeam);
+routes.put('/', TeamController.updateTeam);
+routes.delete('/', TeamController.deleteTeam);
 
 
 export default routes;
